@@ -39,9 +39,7 @@ function App() {
           <Catalog products={products}/>
         </Container>
       </Box>
-      <Container maxWidth='xl' sx={{mt: 14}}>      
-        <Catalog products={products}/>
-      </Container>
+     
     </ThemeProvider>
   )
 }
