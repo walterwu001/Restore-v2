@@ -7,7 +7,7 @@ import NavBar from "./NavBar";
 function App() {
 
   const [products, setProducts] = useState<Product[]>([]);
-  const darkMode = false;
+  const [darkMode, setDarkMode] = useState(false);
   const palleteType = darkMode ? 'dark': 'light'
 
   const theme = createTheme({
@@ -18,6 +18,11 @@ function App() {
       }
     }
   });
+
+  // Toggle Dark Mode
+  const toggleDarkMode = () => {
+    setDarkMode((prevDarkMode) => !prevDarkMode);
+  };
   
   useEffect (() => {
     fetch('https://localhost:5001/api/products')
@@ -28,7 +33,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <NavBar />
+      <NavBar darkMode = {darkMode} toggleDarkMode={toggleDarkMode}/>
       <Box
         sx={{
           minHeight: '100vh',
