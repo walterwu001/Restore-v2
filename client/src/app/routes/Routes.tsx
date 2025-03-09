@@ -4,6 +4,7 @@ import HomePage from "../../features/home/HomePage";
 import ProductDetails from "../../features/catalog/ProductDetails";
 import AboutPage from "../../features/abount/AboutPage";
 import ContactPage from "../../features/contact/ContactPage";
+import Catalog from "../../features/catalog/Catalog";
 
 export const router = createBrowserRouter([
     {
@@ -11,7 +12,7 @@ export const router = createBrowserRouter([
          element: <App />,
          children: [
             {path: '', element: <HomePage />},
-            {path: '/catalog', element: <ProductDetails />},
+            {path: '/catalog', element: <Catalog />},
             {path: '/catalog/:id', element: <ProductDetails />},
             {path: '/about', element: <AboutPage />},
             {path: '/contact', element: <ContactPage />}
