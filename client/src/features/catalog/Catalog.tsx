@@ -1,19 +1,36 @@
 import { useEffect, useState } from "react";
 import { Product } from "../../app/models/product";
 import ProductList from "./ProductList";
+import { getWithAuth } from "../../app/api/api";
+import { Typography } from "@mui/material";
 
 export default function Catalog() {
   
   const [products, setProducts] = useState<Product[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
-    useEffect (() => {
-      fetch('https://localhost:5001/api/products')
-        .then(resopne => resopne.json())
-        .then(data => setProducts(data))
-    }, [])
+    // useEffect (() => {
+    //   fetch('https://localhost:5001/api/products')
+    //     .then(resopne => resopne.json())
+    //     .then(data => setProducts(data))
+    // }, [])
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const response = await getWithAuth<any>("https://localhost:5001/api/products");
+          setProducts(response)
+        } catch (err) {
+          setError("Error fetching data. Please log in again." + err);
+        }
+      };
+  
+      fetchData();
+    }, []);
     
   return (
     <>
+        <Typography>{error}</Typography>
         <ProductList products={products}/>
     </>
   )
