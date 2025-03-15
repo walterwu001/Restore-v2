@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Product } from "../../app/models/product";
 import ProductList from "./ProductList";
 import { getWithAuth } from "../../app/api/api";
-import { Typography } from "@mui/material";
 
 export default function Catalog() {
   
@@ -30,7 +29,7 @@ export default function Catalog() {
     
   return (
     <>
-        <Typography>{error}</Typography>
+        {error && <p style={{ color: "red" }}>{error}</p>}
         <ProductList products={products}/>
     </>
   )

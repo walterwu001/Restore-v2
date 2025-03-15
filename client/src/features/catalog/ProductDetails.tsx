@@ -23,7 +23,8 @@ export default function ProductDetails() {
             const response = await getWithAuth<any>(`https://localhost:5001/api/products/${id}`);
             setProduct(response)
           } catch (err) {
-            setError("Error fetching data. Please log in again." + err);
+            console.error("Fetch error:", err);
+            setError("Error fetching data. Please log in again.");
           }
         };
     
@@ -42,7 +43,7 @@ export default function ProductDetails() {
 
   return (    
     <Grid2 container spacing={6} maxWidth='lg' sx={{mx: 'auto'}}>
-      <Typography>{error}</Typography>
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <Grid2 size={6}>
         <img src={product.pictureUrl} alt={product.name} style={{width: '100%'}}/>
       </Grid2>

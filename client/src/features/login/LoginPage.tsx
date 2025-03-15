@@ -12,8 +12,9 @@ const LoginPage: React.FC = () => {
 
     try {
       await login(username, password);
-      alert("Login successful!");
-      window.location.reload(); // Reload to reflect auth changes
+    //   alert("Login successful!");
+    //   window.location.reload(); // Reload to reflect auth changes
+      window.location.href = "/catalog";
     } catch {
       setError("Login failed. Please check your credentials.");
     }
