@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://localhost:5001/api/";
+const API_URL = "https://restore-course-walter.azurewebsites.net/api/";
 
 const api = axios.create({
   baseURL: API_URL,
