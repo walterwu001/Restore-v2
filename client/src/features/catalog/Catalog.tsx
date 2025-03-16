@@ -17,7 +17,7 @@ export default function Catalog() {
       const fetchData = async () => {
         try {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const response = await getWithAuth<any>("https://restore-course-walter.azurewebsites.net/api/products");
+          const response = await getWithAuth<any>("https://localhost:5001/api/products");
           setProducts(response)
         } catch (err) {
           setError("Error fetching data. Please log in again." + err);

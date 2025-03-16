@@ -20,7 +20,7 @@ export default function ProductDetails() {
         const fetchData = async () => {
           try {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const response = await getWithAuth<any>(`https://restore-course-walter.azurewebsites.net/api/products/${id}`);
+            const response = await getWithAuth<any>(`https://localhost:5001/api/products/${id}`);
             setProduct(response)
           } catch (err) {
             console.error("Fetch error:", err);
