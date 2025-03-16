@@ -1,1 +1,4 @@
-{}
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/bd8ccec4-03b0-417d-8768-faeb98cf4286/resourceGroups/restore-rg-v2/providers/Microsoft.Web/sites/restore-course-walter",
+    "appService.deploySubpath": "API\\bin1\\Publish"
+}
